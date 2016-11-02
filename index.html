@@ -72,12 +72,13 @@
           var getArray = $.when($dau).done(function(dau){
             console.log($mau(_.keys(dau.values()[eventName])))
             var x = $mau(_.keys(dau.values()[eventName]))
-            console.log(x.values())
-            var kk = _.keys(dau.values()[eventName])
+            $.when(x).done(function(item){
+              console.log(item)
+              var kk = _.keys(dau.values()[eventName])
               _.each(kk, function(k){
                 // final[eventName][k] = dau.values()[eventName][k] / item.values()[eventName][k]
              })
-              console.log(final)
+              // console.log(final)
             })
             // console.log($mau(_.keys(dau.values()[eventName])))
             // console.log(dau)
@@ -86,7 +87,7 @@
             //   final_output[eventName][k] = dau.values()[eventName][k] / gc
             // })
             // return _.keys(dau.values()[eventName])
-          // })
+          })
           
           // var finalize = $.when(getArray, $dau).done(function(ga, dau){
           //   var kk = _.keys(dau.values()[eventName])
