@@ -42,7 +42,7 @@
           var d_a = ["09-10-2016", "10-10-2016"]
           var $mau = function(date_array){
             var y = {}
-            var y[eventName] = {}
+            y[eventName] = {}
             _.each(date_array, function(dte){
               var dtef = new Date((new Date(dte).getTime() - 2.592e+9)).getTime().toISOString(0, 10)
             
