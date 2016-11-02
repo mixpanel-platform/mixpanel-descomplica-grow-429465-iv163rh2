@@ -60,7 +60,7 @@
               });
               $.when(x).done(function(item){
                 y[eventName][dtef] = item.values()[eventName][dtef]
-                console.log(y)
+                return y;
               })
             })
           }
