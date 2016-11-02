@@ -32,6 +32,8 @@
           //$('#graph').empty();
           var y = {}
           y[eventName] = {}
+          var final = {}
+          final[eventName] = {}
           var $dau = MP.api.segment(eventName, {
             // from: moment(getDates().from).subtract(30, 'days'),
             // to: moment(getDates().to).subtract(1, 'days'),
@@ -68,10 +70,23 @@
           // $mau(d_a)
           
           var getArray = $.when($dau).done(function(dau){
-            $mau(_.keys(dau.values()[eventName]))
-            console.log($mau(_.keys(dau.values()[eventName])))
-            console.log(dau)
+            return $mau(_.keys(dau.values()[eventName]))
+            // console.log($mau(_.keys(dau.values()[eventName])))
+            // console.log(dau)
+            // var kk = _.keys(dau.values()[eventName])
+            // _.each(kk, function(k){
+            //   final_output[eventName][k] = dau.values()[eventName][k] / gc
+            // })
             // return _.keys(dau.values()[eventName])
+          })
+          
+          var finalize = $.when(getArray, $dau).done(function(ga, dau){
+            var kk = _.keys(dau.values()[eventName])
+            _.each(kk, function(k){
+              final_output[eventName][k] = dau.values()[eventName][k] / ga.values()[eventName][k]
+            })
+            console.log(final_output)
+            
           })
           
           // $.when(getArray).done(function(array){
