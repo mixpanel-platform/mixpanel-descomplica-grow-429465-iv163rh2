@@ -75,7 +75,9 @@
               // console.log(item)
               // console.log(dau.values())
               var kk = _.keys(dau.values()[eventName])
+              var jj = _.keys(item[eventName])
               console.log(kk)
+              console.log(jj)
               _.each(kk, function(k){
                 final[eventName][k] = dau.values()[eventName][k] / item[eventName][k]
                 console.log("dau")
