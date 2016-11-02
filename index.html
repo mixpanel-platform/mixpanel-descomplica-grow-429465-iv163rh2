@@ -30,6 +30,8 @@
 
         var runQuery = function() {
           //$('#graph').empty();
+          var y = {}
+          y[eventName] = {}
           var $dau = MP.api.segment(eventName, {
             // from: moment(getDates().from).subtract(30, 'days'),
             // to: moment(getDates().to).subtract(1, 'days'),
@@ -43,8 +45,6 @@
           
           var d_a = ["2016-09-10", "2016-10-10"]
           var $mau = function(date_array){
-            var y = {}
-            y[eventName] = {}
             _.each(date_array, function(dte){
               var dtei = new Date(dte).getTime() -  2.592e9 + 8.64e+7
               var dtef = new Date(dtei).toISOString().substr(0, 10)
