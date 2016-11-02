@@ -75,7 +75,7 @@
             $.when(x).done(function(item){
               var kk = _.keys(dau.values()[eventName])
               _.each(kk, function(k){
-                final[eventName][k] = dau.values()[eventName][k] / ga.values()[eventName][k]
+                final[eventName][k] = dau.values()[eventName][k] / x.values()[eventName][k]
              })
               console.log(final)
             })
