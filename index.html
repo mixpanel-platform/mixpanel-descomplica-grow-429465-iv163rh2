@@ -73,16 +73,16 @@
             // console.log($mau(_.keys(dau.values()[eventName])))
             var x = $mau(_.keys(dau.values()[eventName]))
             $.when(x).done(function(item){
-              console.log(item)
-              console.log(dau.values())
+              // console.log(item)
+              // console.log(dau.values())
               var kk = _.keys(dau.values()[eventName])
-              console.log(kk)
+              // console.log(kk)
               _.each(kk, function(k){
                 final[eventName][k] = dau.values()[eventName][k] / item[eventName][k]
                 console.log("dau")
                 console.log(dau.values()[eventName][k])
                 console.log("item")
-                console.log(item[eventName])
+                console.log(item[eventName][k])
                 console.log(final)
                 // console.log(final)
              })
