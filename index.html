@@ -59,7 +59,7 @@
                 where: 'properties["gt_Subscriber"] == true and ("Android" in properties["gt_OS"]) and (defined (properties["gt_OS"]))'
               });
               $.when(x).done(function(item){
-                y[eventName][dtef] = item.values()[eventName][dtef]
+                y[eventName][dte] = item.values()[eventName][dtef]
                 // console.log(y)
               })
             })
