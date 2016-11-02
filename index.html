@@ -50,8 +50,8 @@
             _.each(date_array, function(dte){
               var dtei = new Date(dte).getTime() -  2.592e9 + 8.64e+7
               var dtef = new Date(dtei).toISOString().substr(0, 10)
-              console.log ("DTE " + dte)
-              console.log( "DTEF " + dtef)
+              // console.log ("DTE " + dte)
+              // console.log( "DTEF " + dtef)
             
               var x = MP.api.segment(eventName, {
                 from: dtef,
@@ -76,16 +76,16 @@
               // console.log(dau.values())
               var kk = _.keys(dau.values()[eventName])
               var jj = _.keys(item[eventName])
-              console.log(kk)
-              console.log(jj)
+              // console.log(kk)
+              // console.log(jj)
               _.each(kk, function(k){
                 final[eventName][k] = dau.values()[eventName][k] / item[eventName][k]
                 console.log("dau")
                 console.log(dau.values()[eventName][k])
                 console.log("item")
                 console.log(item[eventName])
-                console.log("key")
-                console.log(typeof(k))
+                // console.log("key")
+                // console.log(typeof(k))
                 // console.log(final)
                 // console.log(final)
              })
