@@ -47,8 +47,8 @@
             _.each(date_array, function(dte){
               var dtei = new Date(dte).getTime() -  2.592e9 + 8.64e+7
               var dtef = new Date(dtei).toISOString().substr(0, 10)
-              // console.log ("DTE " + dte)
-              // console.log( "DTEF " + dtef)
+              console.log ("DTE " + dte)
+              console.log( "DTEF " + dtef)
             
               var x = MP.api.segment(eventName, {
                 from: dtef,
@@ -67,12 +67,12 @@
           
           var getArray = $.when($dau).done(function(dau){
             $.when($mau(_.keys(dau.values()[eventName]))).done(function(item){
-              debugger
               console.log(item)
               console.log(dau.values())
               var kk = _.keys(dau.values()[eventName])
+              // console.log(kk)
+              // console.log(jj)
               _.each(kk, function(k){
-                debugger
                 final[eventName][k] = dau.values()[eventName][k] / item[eventName][k]
                 console.log(final)
                 // console.log("dau")
