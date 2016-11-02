@@ -44,7 +44,7 @@
             var y = {}
             y[eventName] = {}
             _.each(date_array, function(dte){
-              var dtei = new Date(dte).getTime() -  2.592e+9
+              var dtei = new Date(dte).getTime() -  2.592e+9 + 8.64e+7
               var dtef = new Date(dtei).toISOString().substr(0, 10)
               console.log ("DTE " + dte)
               console.log( "DTEF " + dtef)
