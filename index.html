@@ -67,8 +67,8 @@
           
           var getArray = $.when($dau).done(function(dau){
             $.when($mau(_.keys(dau.values()[eventName]))).done(function(item){
-              console.log(item)
               debugger
+              console.log(item)
               console.log(dau.values())
               var kk = _.keys(dau.values()[eventName])
               var jj = _.keys(item[eventName])
@@ -78,9 +78,9 @@
                 final[eventName][k] = dau.values()[eventName][k] / item[eventName][k]
                 console.log(final)
                 // console.log("dau")
-                console.log(JSON.stringify(dau.values()[eventName]))
+                console.log(dau.values()[eventName])
                 // console.log("item")
-                console.log(JSON.stringify(item[eventName]))
+                console.log(item[eventName]))
                 // console.log(item[eventName])
                 // console.log("key")
                 // console.log(typeof(k))
