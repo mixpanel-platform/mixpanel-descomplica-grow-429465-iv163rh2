@@ -31,8 +31,10 @@
         var runQuery = function() {
           //$('#graph').empty();
           var $dau = MP.api.segment(eventName, {
-            from: moment(getDates().from).subtract(30, 'days'),
-            to: moment(getDates().to).subtract(1, 'days'),
+            // from: moment(getDates().from).subtract(30, 'days'),
+            // to: moment(getDates().to).subtract(1, 'days'),
+            from: getDates().from,
+            to: getDates().to,
             unit: 'week',
             event: eventName,
             type: 'unique', //you can add an event name here, instead of using event selector
