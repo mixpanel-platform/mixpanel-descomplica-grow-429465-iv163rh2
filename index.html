@@ -62,7 +62,17 @@
               })
             })
           }
-          $mau(d_a)
+          // $mau(d_a)
+          
+          var getArray = $.when($dau).done(function(dau){
+            return _.keys(dau.values()[eventName])
+          })
+          
+          var getMau = $.when(getArray).done(function(array){
+            $mau(array)
+          })
+          
+          getMau();
           // console.log($mau(d_a))
 
           // $.when($dau, $mau).done(function(dau, mau) {
