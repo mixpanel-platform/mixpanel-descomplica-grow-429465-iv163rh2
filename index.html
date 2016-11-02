@@ -68,6 +68,7 @@
           var getArray = $.when($dau).done(function(dau){
             $.when($mau(_.keys(dau.values()[eventName]))).done(function(item){
               console.log(item)
+              debugger
               console.log(dau.values())
               var kk = _.keys(dau.values()[eventName])
               var jj = _.keys(item[eventName])
