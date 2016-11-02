@@ -44,7 +44,8 @@
             var y = {}
             y[eventName] = {}
             _.each(date_array, function(dte){
-              var dtef = new Date((new Date(dte).getTime() - 2.592e+9)).getTime().toISOString(0, 10)
+              var dtei - new Date(dte).getTime() -  2.592e+9
+              var dtef = new Date(dtei).toISOString(0, 10)
             
               var x = MP.api.segment(eventName, {
                 from: dtef,
