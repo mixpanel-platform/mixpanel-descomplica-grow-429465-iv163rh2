@@ -83,8 +83,8 @@
           
           var finalize = $.when(getArray, $dau).done(function(ga, dau){
             var kk = _.keys(dau.values()[eventName])
-            console.log ("mau values" + ga.values()[eventName][k])
-            console.log ("dau values" + dau.values()[eventName][k])
+            console.log ("mau values" + ga.values()[eventName])
+            console.log ("dau values" + dau.values()[eventName])
             _.each(kk, function(k){
               final[eventName][k] = dau.values()[eventName][k] / ga.values()[eventName][k]
             })
