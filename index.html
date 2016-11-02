@@ -35,17 +35,14 @@
           var final = {}
           final[eventName] = {}
           var $dau = MP.api.segment(eventName, {
-            // from: moment(getDates().from).subtract(30, 'days'),
-            // to: moment(getDates().to).subtract(1, 'days'),
             from: getDates().from,
             to: getDates().to,
             unit: 'week',
             event: eventName,
-            type: 'unique', //you can add an event name here, instead of using event selector
-            where: 'properties["gt_Subscriber"] == true and ("Android" in properties["gt_OS"]) and (defined (properties["gt_OS"]))' //where param for property filters
+            type: 'unique',
+            where: 'properties["gt_Subscriber"] == true and ("Android" in properties["gt_OS"]) and (defined (properties["gt_OS"]))'
           });
           
-          var d_a = ["2016-09-10", "2016-10-10"]
           var $mau = function(date_array){
             _.each(date_array, function(dte){
               var dtei = new Date(dte).getTime() -  2.592e9 + 8.64e+7
@@ -62,7 +59,6 @@
               });
               $.when(x).done(function(item){
                 y[eventName][dte] = item.values()[eventName][dtef]
-                // console.log(y)
               })
             })
             return y
@@ -70,7 +66,6 @@
           // $mau(d_a)
           
           var getArray = $.when($dau).done(function(dau){
-            // console.log($mau(_.keys(dau.values()[eventName])))
             $.when($mau(_.keys(dau.values()[eventName]))).done(function(item){
               console.log(item)
               console.log(dau.values())
@@ -80,93 +75,22 @@
               // console.log(jj)
               _.each(kk, function(k){
                 final[eventName][k] = dau.values()[eventName][k] / item[eventName][k]
-                console.log("dau")
-                console.log(JSON.stringify(dau.values()[eventName]))
-                console.log("item")
-                console.log(JSON.stringify(item[eventName]))
-                console.log(item[eventName])
+                // console.log("dau")
+                // console.log(JSON.stringify(dau.values()[eventName]))
+                // console.log("item")
+                // console.log(JSON.stringify(item[eventName]))
+                // console.log(item[eventName])
                 // console.log("key")
                 // console.log(typeof(k))
                 // console.log(final)
                 // console.log(final)
              })
             })
-            // console.log($mau(_.keys(dau.values()[eventName])))
-            // console.log(dau)
-            // var kk = _.keys(dau.values()[eventName])
-            // _.each(kk, function(k){
-            //   final_output[eventName][k] = dau.values()[eventName][k] / gc
-            // })
-            // return _.keys(dau.values()[eventName])
           })
-          
-          // var finalize = $.when(getArray, $dau).done(function(ga, dau){
-          //   var kk = _.keys(dau.values()[eventName])
-          //   console.log (ga.values()[eventName])
-          //   console.log (dau.values()[eventName])
-          //   _.each(kk, function(k){
-          //     final[eventName][k] = dau.values()[eventName][k] / ga.values()[eventName][k]
-          //   })
-          //   console.log(final)
-            
-          // })
-          
-          // $.when(getArray).done(function(array){
-          //   $mau(array)
-          // })
-          
-          // console.log($mau(d_a))
-
-          // $.when($dau, $mau).done(function(dau, mau) {
-          //   console.log(JSON.stringify(dau))
-          //   console.log(JSON.stringify(mau))
-          //   // console.log(mau.values()[eventName])
-          //   var final_output = {}
-          //   final_output[eventName] = {}
-          //   var days = _.keys(mau.values()[eventName])
-          //   var weeks = _.keys(dau.values()[eventName])
-          //   _.each(weeks, function(week){
-          //     var array = []
-          //     var sum = 0
-          //     for (var i = 0; i< 30; i++){
-          //       var x = new Date(week).getTime() - i * 86400000
-          //       var d = new Date(x).toISOString().substr(0, 10)
-        //         array.push(d)
-        //       }
-        //       _.each(array, function(item){
-        //         if (days.indexOf(item)!== -1){
-        //         // console.log(mau.values()[eventName][item])
-        //         sum+= mau.values()[eventName][item]
-        //         }
-        //       })
-        //       console.log(sum)
-        //       // final_output[eventName][week] = dau.values()[eventName][week]/sum
-        //       if (sum > 0){
-        //       final_output[eventName][week] = dau.values()[eventName][week]/sum
-        //       }
-        //     })
-        //     console.log(days)
-        //     console.log(weeks)
-        //     console.log(JSON.stringify(final_output))
-        //     // average the DAU values and divide them by the MAU ones
-        //     // (we sum the MAU in the case where the 30 days spans over two months)
-        //     // debugger
-        //     var dauMau = dau.divide(mau.sum()).values();
-        //     // console.log (dauMau)
-        //     console.log(JSON.stringify(dauMau));
-        //     $('#graph').MPChart({ // create chart
-        //       chartType: 'line',                           // set its data
-        //     });
-        //     $('#graph2').MPChart({ // create chart
-        //       chartType: 'line',                           // set its data
-        //     });
-        //     $('#graph').MPChart('setData', dauMau);
-        //     $('#graph2').MPChart('setData', final_output);
-        //   });
+        
           
         };
      
-    // });
     dateSelect.on('change', runQuery);
     </script>
   </body>
